@@ -11,7 +11,6 @@ load_dotenv()
 colorama_init(autoreset=True)
 
 # example youtube playlist id - PLeJ5DwBZKZUkIRRBH-r4DwXwAOpy_6Xlg
-# executable
 
 # Input for playlist details
 playlist_ID = input("Enter the playlist ID: ")
