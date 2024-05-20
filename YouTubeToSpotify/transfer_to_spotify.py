@@ -1,20 +1,21 @@
 from googleapiclient.discovery import build
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
+import os
+from dotenv import load_dotenv, dotenv_values
 
-API_KEY = "AIzaSyDVBuLVoXb3jujrCRC7M44NZVxAHsMppmE"
+
+load_dotenv()
+
+# change to var instead
 PLAYLIST_ID = "PLeJ5DwBZKZUkMHVXDIK1_UJDb34GG4YWW"
-
-SPOTIPY_CLIENT_ID = "70d45f9785cb436a8106a2e93bde07d0"
-SPOTIPY_CLIENT_SECRET = "6b87886be4244b2bac36a7deda89da51"
-SPOTIPY_REDIRECT_URI = "https://open.spotify.com/"
 
 # Authenticate with Spotify
 sp = spotipy.Spotify(
     auth_manager=SpotifyOAuth(
-        client_id=SPOTIPY_CLIENT_ID,
-        client_secret=SPOTIPY_CLIENT_SECRET,
-        redirect_uri=SPOTIPY_REDIRECT_URI,
+        client_id=os.getenv("SPOTIPY_CLIENT_ID"),
+        client_secret=os.getenv("SPOTIPY_CLIENT_SECRET"),
+        redirect_uri=os.getenv("SPOTIPY_REDIRECT_URI"),
         scope="playlist-modify-public",
     )
 )
@@ -29,7 +30,7 @@ class TransferToSpotify:
         titles = []
         next_page_token = None
         # Initialize the YouTube API client
-        youtube = build("youtube", "v3", developerKey=API_KEY)
+        youtube = build("youtube", "v3", developerKey=os.getenv("API_KEY"))
 
         while True:
             request = youtube.playlistItems().list(
