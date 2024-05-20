@@ -10,7 +10,7 @@ from tqdm import tqdm
 load_dotenv()
 colorama_init(autoreset=True)
 
-# PLeJ5DwBZKZUkIRRBH-r4DwXwAOpy_6Xlg
+# example youtube playlist id - PLeJ5DwBZKZUkIRRBH-r4DwXwAOpy_6Xlg
 
 
 # Input for playlist details
